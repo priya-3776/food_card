@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crispy Mysore Masala Dosa - Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #000000;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family:
+          "Plus Jakarta Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        padding: 24px;
+        overflow-x: hidden;
+        color: #ffffff;
+        position: relative;
+      }
+
+      /* Ambient background micro-glow for depth */
+      body::before {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 94, 58, 0.12) 0%,
+          rgba(255, 42, 109, 0.05) 50%,
+          transparent 70%
+        );
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(60px);
+      }
+
+      /* Outer Wrapper for Aceternity / Magic UI Gradient Border & Glow */
+      .card-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 390px;
+        border-radius: 28px;
+        padding: 2px;
+        background: conic-gradient(
+          from var(--angle),
+          #ff4500,
+          #ff8c00,
+          #ffd700,
+          #ff007f,
+          #7928ca,
+          #00d4ff,
+          #ff4500
+        );
+        animation: rotate-border 6s linear infinite;
+        z-index: 1;
+        transition:
+          transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.4s ease;
+      }
+
+      /* Intense back-glow (Ambient Light Layer) */
+      .card-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 32px;
+        background: conic-gradient(
+          from var(--angle),
+          #ff4500,
+          #ff8c00,
+          #ffd700,
+          #ff007f,
+          #7928ca,
+          #00d4ff,
+          #ff4500
+        );
+        animation: rotate-border 6s linear infinite;
+        filter: blur(26px);
+        opacity: 0.55;
+        z-index: -1;
+        transition:
+          opacity 0.4s ease,
+          filter 0.4s ease;
+      }
+
+      /* Hover elevation effect */
+      .card-wrapper:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 60px -12px rgba(255, 69, 0, 0.25);
+      }
+
+      .card-wrapper:hover::before {
+        opacity: 0.85;
+        filter: blur(34px);
+      }
+
+      @keyframes rotate-border {
+        0% {
+          --angle: 0deg;
+        }
+        100% {
+          --angle: 360deg;
+        }
+      }
+
+      /* Card Content Surface (Obsidian / Glassmorphic UI) */
+      .card {
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(35, 38, 48, 0.6) 0%,
+            rgba(12, 13, 17, 0.95) 70%
+          ),
+          #0a0b0e;
+        border-radius: 26px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+      }
+
+      /* Image Container with Zoom effect */
+      .image-container {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        background-color: #14161f;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .card-wrapper:hover .image-container img {
+        transform: scale(1.08);
+      }
+
+      /* Vignette overlay on image */
+      .image-container::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.1) 0%,
+          transparent 50%,
+          rgba(10, 11, 14, 0.95) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* Floating Badges */
+      .badge-bar {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+      }
+
+      .tag-special {
+        background: rgba(15, 17, 24, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+        padding: 6px 14px;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #ffd700;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        letter-spacing: 0.02em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      .tag-veg {
+        width: 22px;
+        height: 22px;
+        border: 2px solid #22c55e;
+        border-radius: 5px;
+        background: rgba(10, 11, 14, 0.7);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+      }
+
+      .tag-veg-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 8px #22c55e;
+      }
+
+      /* Content Area */
+      .card-content {
+        padding: 20px 24px 24px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Title & Meta */
+      .header-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .card-title {
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.82rem;
+        color: #94a3b8;
+      }
+
+      .rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: #f59e0b;
+        font-weight: 700;
+      }
+
+      .rating svg {
+        width: 14px;
+        height: 14px;
+        fill: #f59e0b;
+      }
+
+      .meta-dot {
+        width: 3px;
+        height: 3px;
+        background: #475569;
+        border-radius: 50%;
+      }
+
+      .time {
+        color: #94a3b8;
+      }
+
+      /* Ingredients Section */
+      .ingredients-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 14px;
+        padding: 12px 14px;
+      }
+
+      .ingredients-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #ff8c00;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .ingredients-list {
+        font-size: 0.84rem;
+        color: #cbd5e1;
+        line-height: 1.45;
+      }
+
+      /* Ingredients Pills */
+      .pills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .pill {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #e2e8f0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        padding: 3px 8px;
+      }
+
+      /* Price and Button Footer */
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 4px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .price-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .price-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: #64748b;
+      }
+
+      .price-value-container {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+      }
+
+      .current-price {
+        font-size: 1.55rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .original-price {
+        font-size: 0.85rem;
+        color: #64748b;
+        text-decoration: line-through;
+      }
+
+      /* Add to Cart Button with Aceternity Shimmer & Glow */
+      .btn-add-cart {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border-radius: 14px;
+        border: none;
+        font-family: inherit;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #ffffff;
+        cursor: pointer;
+        background: linear-gradient(135deg, #ff5e3a 0%, #ff2a6d 100%);
+        box-shadow:
+          0 4px 18px rgba(255, 42, 109, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+      }
+
+      /* Shimmer light sweep */
+      .btn-add-cart::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .btn-add-cart:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 8px 24px rgba(255, 42, 109, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        background: linear-gradient(135deg, #ff6b47 0%, #ff3b7a 100%);
+      }
+
+      .btn-add-cart:hover::before {
+        left: 100%;
+      }
+
+      .btn-add-cart:active {
+        transform: translateY(1px) scale(0.97);
+        box-shadow: 0 2px 10px rgba(255, 42, 109, 0.3);
+      }
+
+      .btn-add-cart svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        transition: transform 0.3s ease;
+      }
+
+      .btn-add-cart:hover svg {
+        transform: scale(1.15) rotate(-6deg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Single Modern Glowing Card Component -->
+    <div class="card-wrapper">
+      <div class="card">
+        <!-- Dish Image with floating badges -->
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80"
+            alt="Crispy Mysore Masala Dosa"
+            loading="lazy"
+          />
+          <div class="badge-bar">
+            <div class="tag-special">
+              <span>✨</span>
+              <span>Chef's Signature</span>
+            </div>
+            <div class="tag-veg" title="100% Pure Vegetarian">
+              <div class="tag-veg-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Details -->
+        <div class="card-content">
+          <!-- Title and Metadata -->
+          <div class="header-group">
+            <h1 class="card-title">Crispy Mysore Masala Dosa</h1>
+            <div class="meta-row">
+              <span class="rating">
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  ></polygon>
+                </svg>
+                4.9
+              </span>
+              <span class="meta-dot"></span>
+              <span class="time">15–20 mins</span>
+              <span class="meta-dot"></span>
+              <span>South Indian</span>
+            </div>
+          </div>
+
+          <!-- Ingredients Section -->
+          <div class="ingredients-box">
+            <div class="ingredients-title">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"
+                />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              Key Ingredients & Prep
+            </div>
+            <p class="ingredients-list">
+              Crisp fermented rice-lentil crepe layered with fiery Mysore garlic
+              chutney & spiced potato bhaji, roasted in pure desi ghee.
+            </p>
+            <div class="pills-container">
+              <span class="pill">Desi Ghee</span>
+              <span class="pill">Potato Masala</span>
+              <span class="pill">Coconut Chutney</span>
+              <span class="pill">Sambhar</span>
+            </div>
+          </div>
+
+          <!-- Price and Add to Cart Button -->
+          <div class="card-footer">
+            <div class="price-group">
+              <span class="price-label">Price</span>
+              <div class="price-value-container">
+                <span class="current-price">₹180</span>
+                <span class="original-price">₹220</span>
+              </div>
+            </div>
+            <button
+              class="btn-add-cart"
+              type="button"
+              aria-label="Add Crispy Mysore Masala Dosa to Cart"
+            >
+              <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
